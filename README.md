@@ -7,3 +7,9 @@ How to use:
 
 Word of warning: 
 Works only for humans. If you're an alien or a smart chimp, don't feel offended. 
+
+
+Find trained keras model in .h5 format in models directory your custom application.
+
+Possible future works:
+Integrating model with real-time prediction for videos.

@@ -27,7 +27,7 @@ Keras-Preprocessing==1.1.0
 keras-vggface @ git+https://github.com/rcmalli/keras-vggface.git@719ad75625fe51436b9a9479114b3d136847e11a
 Markdown==3.1.1
 MarkupSafe==1.1.1
-mkl-fft==1.1.0
+mkl-fft==1.0.6
 mkl-random==1.1.1
 mkl-service==2.3.0
 mtcnn==0.1.0

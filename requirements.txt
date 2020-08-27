@@ -28,7 +28,7 @@ keras-vggface @ git+https://github.com/rcmalli/keras-vggface.git@719ad75625fe514
 Markdown==3.1.1
 MarkupSafe==1.1.1
 mkl-fft==1.0.6
-mkl-random==1.1.1
+mkl-random==1.0.1.1
 mkl-service==2.3.0
 mtcnn==0.1.0
 numpy==1.18.5

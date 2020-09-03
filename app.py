@@ -1,5 +1,4 @@
 from __future__ import division, print_function
-# coding=utf-8
 import sys
 import os
 import glob
@@ -49,15 +48,13 @@ def extract_face(filename, required_size=(200, 200)):
       # load image from file
     pixels = cv2.imread(filename)
 
-	# create the detector, using default weights
+	# Face detection
     detector = MTCNN()
-	# detect faces in the image
     results = detector.detect_faces(pixels)
-	# extract the bounding box from the first face
+	# Cropping
     x1, y1, width, height = results[0]['box']
     x1, y1 = x1 - 10, y1 + 10
     x2, y2 = x1 + int(1.2*width)+10, y1 + int(1*height) + 5
-	# extract the face
     face = pixels[y1:y2, x1:x2]
 	# resize pixels to the model size
     im = Image.fromarray(face)
@@ -72,9 +69,6 @@ def model_predict(img_path):
 
     im =  extract_face(img_path)
 
-    # Be careful how your trained model deals with the input
-    # otherwise, it won't make correct prediction!
-    #x = preprocess_input(x, mode='caffe')
     features = head.predict(im)
     age = Amodel.predict(features)
     g = Gmodel.predict(features).argmax(axis=-1)
@@ -107,9 +101,7 @@ def upload():
         # Make prediction
         preds = model_predict(file_path)
 
-        # Process your result for human
-        # pred_class = preds.argmax(axis=-1)            # Simple argmax
-        #pred_class = decode_predictions(preds, top=1)   # ImageNet Decode
+        # Expressing outpout as readable form
         result = '\nAge : ' + preds['Age'] + '\nGender : ' + preds['Gender']               # Convert to string
         return result
     return None
